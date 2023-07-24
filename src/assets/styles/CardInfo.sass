@@ -1,0 +1,70 @@
+@import ./_variables
+@import ./_mixins
+
+.card_info
+    @include flex_box()
+    img
+        margin-right: 25px
+.info_container
+    align-self: center
+    div, span
+        @include flex_box($justify:flex-start)
+
+    .info_header, .ocupation, .point
+        font-weight: 700
+
+.info_header
+    margin-bottom: 15px
+    span
+        margin-right: 10px
+    .company
+        color: $dd_cyan
+    .new
+        padding: 5px 7px
+        padding-bottom: 3px
+        border-radius: 100px
+        background-color: $dd_cyan
+        color: #fff
+        font-size: 13px
+    .featured
+        @extend .new
+        background-color: $vdg_cyan
+.ocupation
+    font-size: 18px
+    transition: .3s
+.ocupation:hover
+    color: $dd_cyan
+.info_feet
+    margin-top: 15px
+    color: $dg_cyan
+    span
+        margin-right: 15px
+    .point
+        position: relative
+        bottom: 3px
+        font-size: 18px
+//Responsive Design
+@include breakpoint()
+    .card_info
+        width: 100%
+        flex-direction: column
+        img
+            transform: translate(-5px,-80px)
+            position: absolute
+            width: 50px
+            height: 50px
+    .info_header
+        margin-top: 10px
+    .info_container
+        width: 100%
+        border-bottom: 1px solid $dg_cyan
+        & :last-child
+            flex-wrap: nowrap
+            span
+                white-space: nowrap
+    .ocupation
+        font-size: 16px
+    .info_feet
+        padding-bottom: 15px
+        span
+            margin-right: 10px

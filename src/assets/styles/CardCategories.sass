@@ -1,0 +1,21 @@
+@import ./_mixins
+@import ./_variables
+
+.card_categories
+    @include flex_box()
+    .filter
+        @include filter()
+        margin-left: 15px
+        cursor: pointer
+        transition: .2s
+    .filter:hover
+        background-color: $dd_cyan
+        color: #fff
+//Responsive Design
+@include breakpoint()
+    .card_categories
+        justify-content: flex-start
+        .filter
+            margin-top: 15px
+            margin-right: 15px
+            margin-left: 0

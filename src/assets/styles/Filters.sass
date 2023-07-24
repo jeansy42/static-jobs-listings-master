@@ -1,0 +1,83 @@
+@import ./_variables
+@import ./_mixins
+.nav_filter
+    height: 0
+    position: absolute
+    top: 30px
+    bottom: 0
+    z-index: 10
+    animation: showNav_filter .8s ease-in
+
+.filters_container
+    height: 25px
+    padding: 30px 25px
+    border-radius: 5px
+    box-shadow: 0 15px 10px hsl(180deg 41.24% 90.62%)
+    background-color: #fff
+    @include flex_box($justify:space-between)
+    & :last-child
+        cursor: pointer
+        color: $dd_cyan
+        transition: .3s
+    & :last-child:hover
+        border-bottom: 1px solid $dd_cyan
+
+.filters
+    div
+        height: 15px
+        margin-right: 15px
+    @include flex_box()
+.filter
+    @include filter()
+    border-bottom-right-radius: 0
+    border-top-right-radius: 0
+.close_container
+    background-color: $dd_cyan
+    padding: 7px 9px
+    border-bottom-right-radius: 3px
+    border-top-right-radius: 3px
+    cursor: pointer
+    transition: .2s
+.close
+    padding: 5px
+    background-image: url('../images/icon-remove.svg')
+    background-position: center
+    background-size: contain
+    background-repeat: no-repeat
+.close_container:hover
+    background-color: $vdg_cyan
+
+@keyframes showNav_filter
+    0%
+        transform: translateY(-40px)
+    20%
+        transform: translateY(0)
+    40%
+        transform: translateY(-20px)
+    60%
+        transform: translateY(0)
+    80%
+        transform: translateY(-10px)
+    100%
+        transform: translateY(0)
+//Responsive Design
+@include breakpoint()
+    .nav_filter
+        height: auto
+        position: relative
+        min-width: 340px
+        padding: 0 30px
+        top: -30px
+    .filters_container
+        height: auto
+        padding-bottom: 8px
+        flex-wrap: nowrap
+        .clear
+            align-self: center
+            position: relative
+            bottom: 10px
+            
+    .filters
+        justify-content: flex-start
+        div
+            height: 40px
