@@ -8,7 +8,7 @@ export const useJobsContext = () => {
 
 export function JobsContext({ children }) {
   const getJobs = async () => {
-    const request = await fetch("../data.json");
+    const request = await fetch("../../data.json");
     const result = await request.json();
     return result;
   };
